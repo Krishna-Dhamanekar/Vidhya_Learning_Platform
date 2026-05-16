@@ -1,0 +1,2202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vidyaa – Upgrade Your Skills for the Future</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ============================================ */
+    /* ROOT VARIABLES & GLOBAL STYLES */
+    /* ============================================ */
+    :root {
+      --primary: #4F46E5;
+      --secondary: #6366F1;
+      --bg-light: #F5F7FF;
+      --text: #1F2937;
+      --text-light: #6B7280;
+      --border: #E5E7EB;
+      --shadow: 0 4px 24px rgba(79, 70, 229, 0.1);
+      --shadow-hover: 0 12px 40px rgba(79, 70, 229, 0.18);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg-light);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ============================================ */
+    /* HEADER & NAVIGATION */
+    /* ============================================ */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 16px rgba(79, 70, 229, 0.06);
+    }
+
+    .nav {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .logo-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+
+    .logo-text span {
+      color: var(--primary);
+    }
+
+    .nav-search {
+      flex: 1;
+      max-width: 380px;
+      position: relative;
+    }
+
+    .nav-search input {
+      width: 100%;
+      padding: 10px 16px 10px 42px;
+      border: 1.5px solid var(--border);
+      border-radius: 50px;
+      font-size: 0.88rem;
+      outline: none;
+      background: var(--bg-light);
+      transition: 0.2s;
+    }
+
+    .nav-search input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+    }
+
+    .nav-search svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      pointer-events: none;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      background: rgba(79, 70, 229, 0.06);
+    }
+
+    nav a.active {
+      color: var(--primary);
+      background: rgba(79, 70, 229, 0.09);
+      font-weight: 600;
+    }
+
+    .nav-end {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    /* ============================================ */
+    /* MODAL STYLES */
+    /* ============================================ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .modal p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 28px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 1.4rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-light);
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: var(--text);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 7px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.92rem;
+      outline: none;
+      transition: 0.2s;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .form-group input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    .modal-btn {
+      width: 100%;
+      padding: 13px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      transition: 0.22s;
+      margin-top: 4px;
+    }
+
+    .modal-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35);
+    }
+
+    .modal-switch {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.84rem;
+      color: var(--text-light);
+    }
+
+    .modal-switch a {
+      color: var(--primary);
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .modal-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+      color: var(--text-light);
+      font-size: 0.82rem;
+    }
+
+    .modal-divider::before,
+    .modal-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .modal-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .modal-logo .logo-icon {
+      width: 32px;
+      height: 32px;
+      font-size: 0.95rem;
+    }
+
+    .modal-logo .logo-text {
+      font-size: 1.1rem;
+    }
+
+    /* ============================================ */
+    /* BUTTONS */
+    /* ============================================ */
+    .btn {
+      font-weight: 500;
+      font-size: 0.88rem;
+      padding: 10px 22px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.22s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .btn-out {
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-out:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-pri {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn-pri:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.38);
+    }
+
+    /* ============================================ */
+    /* HERO SECTION */
+    /* ============================================ */
+    .hero {
+      background: url('back1.avif') center / cover no-repeat;
+      padding: 90px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.35;
+      animation: bFloat 8s ease-in-out infinite;
+    }
+
+    .b1 {
+      width: 300px;
+      height: 300px;
+      background: #4F46E5;
+      top: -60px;
+      right: 15%;
+    }
+
+    .b2 {
+      width: 200px;
+      height: 200px;
+      background: #6366F1;
+      bottom: -30px;
+      right: 30%;
+      animation-delay: 3s;
+    }
+
+    @keyframes bFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.3); }
+    }
+
+    @keyframes pAnim {
+      from { width: 0; }
+      to { width: 68%; }
+    }
+
+    @keyframes flt {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-in {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50px;
+      padding: 6px 16px;
+      color: #a5b4fc;
+      font-size: 0.82rem;
+      margin-bottom: 22px;
+    }
+
+    .bdot {
+      width: 7px;
+      height: 7px;
+      background: #10B981;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.18;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .grad {
+      background: linear-gradient(90deg, #818CF8, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin-bottom: 34px;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-wh {
+      background: #fff;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 15px 34px;
+      border-radius: 50px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.22s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-wh:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .btn-ghost {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+
+    .btn-ghost:hover {
+      color: #fff;
+    }
+
+    .play-btn {
+      width: 42px;
+      height: 42px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 30px;
+      margin-top: 44px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stat-n {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.7rem;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-l {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.82rem;
+    }
+
+    .hero-vis {
+      position: relative;
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-card {
+      width: 310px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      padding: 26px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .prev-img {
+      width: 100%;
+      height: 148px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .prev-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .prev-meta {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.8rem;
+      display: flex;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .prev-bar {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 50px;
+      height: 5px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .prev-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #818CF8, #60a5fa);
+      border-radius: 50px;
+      width: 68%;
+      animation: pAnim 2s ease-out;
+    }
+
+    .prev-pct {
+      color: #818CF8;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .flt {
+      position: absolute;
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px 18px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+      z-index: 3;
+      animation: flt 5s ease-in-out infinite;
+    }
+
+    .flt-1 {
+      top: 20px;
+      left: -40px;
+    }
+
+    .flt-2 {
+      bottom: 40px;
+      right: -30px;
+      animation-delay: 2s;
+    }
+
+    .flt-icon {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+
+    .flt-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .flt-sub {
+      font-size: 0.7rem;
+      color: var(--text-light);
+    }
+
+    .stars {
+      color: #F59E0B;
+      font-size: 0.8rem;
+    }
+
+    /* ============================================ */
+    /* SHARED SECTION STYLES */
+    /* ============================================ */
+    section {
+      padding: 72px 24px;
+    }
+
+    .sec-in {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .sec-hd {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .sec-lbl {
+      display: inline-block;
+      background: rgba(79, 70, 229, 0.1);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+    }
+
+    .sec-ttl {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.22;
+      margin-bottom: 14px;
+    }
+
+    .sec-sub {
+      color: var(--text-light);
+      font-size: 1rem;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* ============================================ */
+    /* CATEGORIES SECTION */
+    /* ============================================ */
+    .categories {
+      background: #fff;
+    }
+
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .cat-card {
+      background: var(--bg-light);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.25s;
+      text-decoration: none;
+      display: block;
+    }
+
+    .cat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--primary);
+    }
+
+    .cat-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 16px;
+      transition: 0.25s;
+    }
+
+    .cat-card:hover .cat-icon {
+      transform: scale(1.1);
+    }
+
+    .cat-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+
+    .cat-count {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    /* ============================================ */
+    /* COURSES SECTION */
+    /* ============================================ */
+    .courses {
+      background: var(--bg-light);
+    }
+
+    .crs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .crs-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: 0.28s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .crs-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(79, 70, 229, 0.2);
+    }
+
+    .crs-thumb {
+      height: 185px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .crs-bg {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+    }
+
+    .crs-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #F59E0B;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 50px;
+      z-index: 1;
+      text-transform: uppercase;
+    }
+
+    .crs-badge.new {
+      background: #10B981;
+    }
+
+    .crs-wl {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      z-index: 1;
+      cursor: pointer;
+      border: none;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    .crs-wl:hover {
+      transform: scale(1.15);
+    }
+
+    .crs-body {
+      padding: 20px 20px 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .crs-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .crs-ttl {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.38;
+      flex: 1;
+    }
+
+    .crs-instr {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .crs-rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .rat-n {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #92400E;
+    }
+
+    .rat-c {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    .crs-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+
+    .crs-ft {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .crs-price {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.18rem;
+      color: var(--primary);
+    }
+
+    .crs-old {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      text-decoration: line-through;
+      margin-left: 6px;
+    }
+
+    .btn-enr {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 8px 18px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: 0.22s;
+    }
+
+    .btn-enr:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
+    }
+
+    .view-all {
+      text-align: center;
+      margin-top: 44px;
+    }
+
+    .btn-ol {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+      padding: 12px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: 0.22s;
+    }
+
+    .btn-ol:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--text-light);
+      font-size: 1rem;
+      display: none;
+    }
+
+    .no-results.show {
+      display: block;
+    }
+
+    /* ============================================ */
+    /* INSTRUCTORS SECTION */
+    /* ============================================ */
+    .instructors {
+      background: #fff;
+    }
+
+    .instr-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .instr-card {
+      text-align: center;
+      padding: 32px 20px;
+      border-radius: var(--radius);
+      border: 1.5px solid var(--border);
+      background: var(--bg-light);
+      transition: 0.25s;
+      cursor: pointer;
+    }
+
+    .instr-card:hover {
+      border-color: rgba(79, 70, 229, 0.3);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .instr-av {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 16px rgba(79, 70, 229, 0.2);
+      position: relative;
+    }
+
+    .instr-av::after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      right: 3px;
+      width: 16px;
+      height: 16px;
+      background: #10B981;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+
+    .instr-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .instr-role {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 14px;
+    }
+
+    .instr-stats {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .is-n {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    .is-l {
+      font-size: 0.72rem;
+      color: var(--text-light);
+    }
+
+    /* ============================================ */
+    /* TESTIMONIALS SECTION */
+    /* ============================================ */
+    .testimonials {
+      background: var(--bg-light);
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .test-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1.5px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: 0.25s;
+    }
+
+    .test-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .test-q {
+      font-size: 2.5rem;
+      color: var(--primary);
+      font-family: Georgia, serif;
+      line-height: 1;
+      margin-bottom: 14px;
+      opacity: 0.3;
+    }
+
+    .test-txt {
+      color: var(--text-light);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .test-auth {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .test-av {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .test-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .test-role {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    /* ============================================ */
+    /* NEWSLETTER SECTION */
+    /* ============================================ */
+    .newsletter {
+      background: linear-gradient(135deg, #0f0c29, #302b63);
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsletter::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+    }
+
+    .nl-in {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nl-in h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .nl-in > p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 32px;
+    }
+
+    .nl-form {
+      display: flex;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      overflow: hidden;
+    }
+
+    .nl-form input {
+      flex: 1;
+      padding: 16px 24px;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 0.92rem;
+    }
+
+    .nl-form input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .nl-form button {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      padding: 0 28px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    /* ============================================ */
+    /* FOOTER */
+    /* ============================================ */
+    footer {
+      background: #0f0c29;
+      color: rgba(255, 255, 255, 0.75);
+      padding: 64px 24px 0;
+    }
+
+    .ft-in {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ft-brand .logo-text {
+      color: #fff;
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .ft-brand .logo-text span {
+      color: #818CF8;
+    }
+
+    .ft-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      margin-bottom: 22px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .ft-soc {
+      display: flex;
+      gap: 10px;
+    }
+
+    .soc-btn {
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    .soc-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    .ft-col h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+
+    .ft-col ul {
+      list-style: none;
+    }
+
+    .ft-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .ft-col ul a {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: 0.2s;
+    }
+
+    .ft-col ul a:hover {
+      color: #818CF8;
+    }
+
+    .ft-contact {
+      font-size: 0.88rem;
+    }
+
+    .ft-contact p {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .ft-contact span {
+      color: #fff;
+    }
+
+    .ft-bot {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .ft-bot-lnk {
+      display: flex;
+      gap: 20px;
+    }
+
+    .ft-bot-lnk a {
+      color: rgba(255, 255, 255, 0.35);
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .ft-bot-lnk a:hover {
+      color: #818CF8;
+    }
+
+    /* ============================================ */
+    /* ANIMATIONS */
+    /* ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ============================================ -->
+<!-- HEADER NAVIGATION -->
+<!-- ============================================ -->
+<header>
+  <div class="nav">
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <div class="logo-icon">V</div>
+      <span class="logo-text">Vidyaa</span>
+    </a>
+
+    <!-- Search Bar -->
+    <div class="nav-search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" placeholder="Search courses…">
+    </div>
+
+    <!-- Navigation Links -->
+    <nav>
+      <a href="#courses" data-section="courses">Courses</a>
+      <a href="#categories" data-section="categories">Paths</a>
+      <a href="#instructors" data-section="instructors">Instructors</a>
+      <a href="#newsletter" data-section="newsletter">Blog</a>
+    </nav>
+
+    <!-- Right Side Buttons -->
+    <div class="nav-end">
+      <button class="btn btn-out" id="loginBtn">Log In</button>
+      <button class="btn btn-pri" id="signupBtn">Sign Up Free</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================ -->
+<!-- HERO SECTION -->
+<!-- ============================================ -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <div class="hero-in">
+    <!-- Hero Content (Left) -->
+    <div>
+      <div class="hero-badge">
+        <span class="bdot"></span>
+        2.4M+ learners enrolled this year
+      </div>
+      <h1>Learn Skills That <span class="grad">Shape the Future</span></h1>
+      <p>Access 12,000+ expert-led courses in tech, design, data science and more. Learn at your pace, land your dream role.</p>
+
+      <div class="hero-btns">
+        <button class="btn-wh">🚀 Explore Courses</button>
+        <a href="#" class="btn-ghost">
+          <span class="play-btn">▶</span> Watch Demo
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="stat-n">12K+</div>
+          <div class="stat-l">Courses</div>
+        </div>
+        <div>
+          <div class="stat-n">2.4M</div>
+          <div class="stat-l">Learners</div>
+        </div>
+        <div>
+          <div class="stat-n">98%</div>
+          <div class="stat-l">Satisfaction</div>
+        </div>
+        <div>
+          <div class="stat-n">500+</div>
+          <div class="stat-l">Instructors</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Visualization (Right) -->
+    <div class="hero-vis">
+      <div class="hero-card">
+        <div class="prev-img">💻</div>
+        <div class="prev-title">Full Stack Web Development</div>
+        <div class="prev-meta">
+          <span>📚 240 lessons</span>
+          <span>⏱ 48h</span>
+        </div>
+        <div class="prev-bar">
+          <div class="prev-fill"></div>
+        </div>
+        <div class="prev-pct">68% complete</div>
+      </div>
+
+      <!-- Floating Badges -->
+      <div class="flt flt-1">
+        <div class="flt-icon">🏆</div>
+        <div class="flt-label">Certificate Earned!</div>
+        <div class="flt-sub">React Fundamentals</div>
+      </div>
+      <div class="flt flt-2">
+        <div class="flt-icon">🔥</div>
+        <div class="flt-label">42-day streak</div>
+        <div class="flt-sub">Keep it up!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CATEGORIES SECTION -->
+<!-- ============================================ -->
+<section class="categories" id="categories">
+  <div class="sec-in">
+    <div class="sec-hd reveal">
+      <div class="sec-lbl">Browse by Topic</div>
+      <h2 class="sec-ttl">Explore Top Categories</h2>
+      <p class="sec-sub">Choose from our wide range of industry-relevant subjects</p>
+    </div>
+
+    <div class="cat-grid">
+      <a href="#" class="cat-card reveal">
+        <div class="cat-icon" style="background: #EEF2FF">💻</div>
+        <div class="cat-name">Web Development</div>
+        <div class="cat-count">2,340 courses</div>
+      </a>
+
+      <a href="#" class="cat-card reveal">
+        <div class="cat-icon" style="background: #FFF7ED">🤖</div>
+        <div class="cat-name">AI & Machine Learning</div>
+        <div class="cat-count">1,180 courses</div>
+      </a>
+
+      <a href="#" class="cat-card reveal">
+        <div class="cat-icon" style="background: #F0FDF4">📊</div>
+        <div class="cat-name">Data Science</div>
+        <div class="cat-count">980 courses</div>
+      </a>
+
+      <a href="#" class="cat-card reveal">
+        <div class="cat-icon" style="background: #FFF1F2">🔒</div>
+        <div class="cat-name">Cyber Security</div>
+        <div class="cat-count">640 courses</div>
+      </a>
+
+      <a href="#" class="cat-card reveal">
+        <div class="cat-icon" style="background: #F0F9FF">📱</div>
+        <div class="cat-name">Mobile Dev</div>
+        <div class="cat-count">760 courses</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- COURSES SECTION -->
+<!-- ============================================ -->
+<section class="courses" id="courses">
+  <div class="sec-in">
+    <div class="sec-hd reveal">
+      <div class="sec-lbl">Top Picks</div>
+      <h2 class="sec-ttl">Most Popular Courses</h2>
+      <p class="sec-sub">Handpicked by our experts — loved by millions of learners</p>
+    </div>
+
+    <div class="crs-grid">
+      <!-- Course 1: Java -->
+      <div class="crs-card reveal">
+        <div class="crs-thumb">
+          <div class="crs-bg" style="background: linear-gradient(135deg, #667eea, #764ba2)">☕</div>
+          <span class="crs-badge">Bestseller</span>
+          <button class="crs-wl">♡</button>
+        </div>
+        <div class="crs-body">
+          <div class="crs-tag">Java</div>
+          <div class="crs-ttl">Java Masterclass: Zero to Expert with Spring Boot</div>
+          <div class="crs-instr">by Dr. Ravi Sharma</div>
+          <div class="crs-rating">
+            <span class="rat-n">4.8</span>
+            <span class="stars">★★★★★</span>
+            <span class="rat-c">(24,180)</span>
+          </div>
+          <div class="crs-meta">
+            <span>⏱ 78h</span>
+            <span>📚 420 lessons</span>
+            <span>🎯 All levels</span>
+          </div>
+          <div class="crs-ft">
+            <div>
+              <span class="crs-price">₹999</span>
+              <span class="crs-old">₹4,999</span>
+            </div>
+            <button class="btn-enr">Enroll Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 2: Python -->
+      <div class="crs-card reveal">
+        <div class="crs-thumb">
+          <div class="crs-bg" style="background: linear-gradient(135deg, #0f2027, #2c5364)">🐍</div>
+          <span class="crs-badge">Bestseller</span>
+          <button class="crs-wl">♡</button>
+        </div>
+        <div class="crs-body">
+          <div class="crs-tag">Data Science</div>
+          <div class="crs-ttl">Python for Data Science, AI & Development</div>
+          <div class="crs-instr">by Amit Verma</div>
+          <div class="crs-rating">
+            <span class="rat-n">4.9</span>
+            <span class="stars">★★★★★</span>
+            <span class="rat-c">(31,450)</span>
+          </div>
+          <div class="crs-meta">
+            <span>⏱ 52h</span>
+            <span>📚 310 lessons</span>
+            <span>🎯 Beginner</span>
+          </div>
+          <div class="crs-ft">
+            <div>
+              <span class="crs-price">₹799</span>
+              <span class="crs-old">₹3,999</span>
+            </div>
+            <button class="btn-enr">Enroll Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 3: React -->
+      <div class="crs-card reveal">
+        <div class="crs-thumb">
+          <div class="crs-bg" style="background: linear-gradient(135deg, #134e5e, #71b280)">⚛️</div>
+          <span class="crs-badge new">New</span>
+          <button class="crs-wl">♡</button>
+        </div>
+        <div class="crs-body">
+          <div class="crs-tag">Web Dev</div>
+          <div class="crs-ttl">React 19 & Next.js 15: Complete Developer Course</div>
+          <div class="crs-instr">by Priya Menon</div>
+          <div class="crs-rating">
+            <span class="rat-n">4.9</span>
+            <span class="stars">★★★★★</span>
+            <span class="rat-c">(18,920)</span>
+          </div>
+          <div class="crs-meta">
+            <span>⏱ 64h</span>
+            <span>📚 380 lessons</span>
+            <span>🎯 Intermediate</span>
+          </div>
+          <div class="crs-ft">
+            <div>
+              <span class="crs-price">₹1,199</span>
+              <span class="crs-old">₹5,999</span>
+            </div>
+            <button class="btn-enr">Enroll Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View All Courses Button -->
+    <div class="view-all reveal">
+      <a href="#" class="btn-ol">View All 12,000+ Courses →</a>
+    </div>
+
+    <!-- No Results Message -->
+    <div class="no-results" id="noResults">
+      😕 No courses match your search. Try a different keyword.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- INSTRUCTORS SECTION -->
+<!-- ============================================ -->
+<section class="instructors" id="instructors">
+  <div class="sec-in">
+    <div class="sec-hd reveal">
+      <div class="sec-lbl">Meet the Experts</div>
+      <h2 class="sec-ttl">Learn from Industry Leaders</h2>
+      <p class="sec-sub">Our instructors bring real-world expertise and a passion for teaching</p>
+    </div>
+
+    <div class="instr-grid">
+      <!-- Instructor 1 -->
+      <div class="instr-card reveal">
+        <div class="instr-av" style="background: linear-gradient(135deg, #667eea, #764ba2)">RS</div>
+        <div class="instr-name">Dr. Ravi Sharma</div>
+        <div class="instr-role">Senior Java Architect · Oracle Certified</div>
+        <div class="stars" style="margin-bottom: 12px">★★★★★ 4.8</div>
+        <div class="instr-stats">
+          <div>
+            <div class="is-n">42K</div>
+            <div class="is-l">Students</div>
+          </div>
+          <div>
+            <div class="is-n">18</div>
+            <div class="is-l">Courses</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instructor 2 -->
+      <div class="instr-card reveal">
+        <div class="instr-av" style="background: linear-gradient(135deg, #0f2027, #2c5364)">PM</div>
+        <div class="instr-name">Priya Menon</div>
+        <div class="instr-role">Full-Stack Engineer · ex-Google</div>
+        <div class="stars" style="margin-bottom: 12px">★★★★★ 4.9</div>
+        <div class="instr-stats">
+          <div>
+            <div class="is-n">38K</div>
+            <div class="is-l">Students</div>
+          </div>
+          <div>
+            <div class="is-n">12</div>
+            <div class="is-l">Courses</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instructor 3 -->
+      <div class="instr-card reveal">
+        <div class="instr-av" style="background: linear-gradient(135deg, #134e5e, #71b280)">AV</div>
+        <div class="instr-name">Amit Verma</div>
+        <div class="instr-role">Data Scientist · IIT Delhi</div>
+        <div class="stars" style="margin-bottom: 12px">★★★★☆ 4.7</div>
+        <div class="instr-stats">
+          <div>
+            <div class="is-n">56K</div>
+            <div class="is-l">Students</div>
+          </div>
+          <div>
+            <div class="is-n">21</div>
+            <div class="is-l">Courses</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instructor 4 -->
+      <div class="instr-card reveal">
+        <div class="instr-av" style="background: linear-gradient(135deg, #200122, #6f0000)">AS</div>
+        <div class="instr-name">Dr. Ananya Singh</div>
+        <div class="instr-role">AI Researcher · IISc Bangalore</div>
+        <div class="stars" style="margin-bottom: 12px">★★★★★ 4.9</div>
+        <div class="instr-stats">
+          <div>
+            <div class="is-n">61K</div>
+            <div class="is-l">Students</div>
+          </div>
+          <div>
+            <div class="is-n">15</div>
+            <div class="is-l">Courses</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- TESTIMONIALS SECTION -->
+<!-- ============================================ -->
+<section class="testimonials">
+  <div class="sec-in">
+    <div class="sec-hd reveal">
+      <div class="sec-lbl">Student Stories</div>
+      <h2 class="sec-ttl">What Our Learners Say</h2>
+      <p class="sec-sub">Real results from people who transformed their careers with Vidyaa</p>
+    </div>
+
+    <div class="test-grid">
+      <!-- Testimonial 1 -->
+      <div class="test-card reveal">
+        <div class="test-q">"</div>
+        <p class="test-txt">
+          Vidyaa's Java course completely changed my career. I went from a non-coder to landing a backend developer role at a startup — all within 6 months.
+        </p>
+        <div class="test-auth">
+          <div class="test-av" style="background: linear-gradient(135deg, #667eea, #764ba2)">AK</div>
+          <div>
+            <div class="test-name">Arjun Kulkarni</div>
+            <div class="test-role">Backend Developer · Bengaluru</div>
+            <div class="stars" style="margin-top: 3px; font-size: 0.75rem">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="test-card reveal">
+        <div class="test-q">"</div>
+        <p class="test-txt">
+          The AI & ML course is incredibly hands-on. I built my first ML model in week 2. The instructors actually respond to questions, which is rare on most platforms.
+        </p>
+        <div class="test-auth">
+          <div class="test-av" style="background: linear-gradient(135deg, #134e5e, #71b280)">SR</div>
+          <div>
+            <div class="test-name">Sneha Reddy</div>
+            <div class="test-role">ML Engineer · Hyderabad</div>
+            <div class="stars" style="margin-top: 3px; font-size: 0.75rem">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="test-card reveal">
+        <div class="test-q">"</div>
+        <p class="test-txt">
+          I enrolled with zero background in security. Now I'm a certified ethical hacker. Vidyaa's content rivals top universities at a fraction of the cost.
+        </p>
+        <div class="test-auth">
+          <div class="test-av" style="background: linear-gradient(135deg, #1a1a2e, #0f3460)">RK</div>
+          <div>
+            <div class="test-name">Rohan Khanna</div>
+            <div class="test-role">Security Analyst · Mumbai</div>
+            <div class="stars" style="margin-top: 3px; font-size: 0.75rem">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- NEWSLETTER SECTION -->
+<!-- ============================================ -->
+<section class="newsletter" id="newsletter">
+  <div class="nl-in reveal">
+    <div class="sec-lbl" style="background: rgba(255, 255, 255, 0.12); color: #a5b4fc; margin-bottom: 16px">
+      📧 Newsletter
+    </div>
+    <h2>Never Stop Learning</h2>
+    <p>Get weekly course picks, tips, and exclusive discounts straight to your inbox.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="Enter your email address">
+      <button>Subscribe Free →</button>
+    </div>
+    <p style="font-size: 0.78rem; margin-top: 14px; color: rgba(255, 255, 255, 0.4)">
+      No spam, ever. Unsubscribe anytime.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- LOGIN MODAL -->
+<!-- ============================================ -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" id="closeLogin">✕</button>
+
+    <div class="modal-logo">
+      <div class="logo-icon">V</div>
+      <span class="logo-text">Vidyaa</span>
+    </div>
+
+    <h2>Welcome back</h2>
+    <p>Log in to continue your learning journey.</p>
+
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" placeholder="you@example.com" id="loginEmail">
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" placeholder="Enter your password" id="loginPass">
+    </div>
+
+    <button class="modal-btn" id="loginSubmit">Log In →</button>
+
+    <div class="modal-switch">
+      Don't have an account? <a id="switchToSignup">Sign up free</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SIGNUP MODAL -->
+<!-- ============================================ -->
+<div class="modal-overlay" id="signupModal">
+  <div class="modal">
+    <button class="modal-close" id="closeSignup">✕</button>
+
+    <div class="modal-logo">
+      <div class="logo-icon">V</div>
+      <span class="logo-text">Vidyaa</span>
+    </div>
+
+    <h2>Start learning today</h2>
+    <p>Create your free account and access 12,000+ courses.</p>
+
+    <div class="form-group">
+      <label>Full name</label>
+      <input type="text" placeholder="Arjun Kulkarni" id="signupName">
+    </div>
+
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" placeholder="you@example.com" id="signupEmail">
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" placeholder="Create a password" id="signupPass">
+    </div>
+
+    <button class="modal-btn" id="signupSubmit">Create Free Account →</button>
+
+    <div class="modal-switch">
+      Already have an account? <a id="switchToLogin">Log in</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<footer>
+  <div class="ft-in">
+    <!-- Brand Section -->
+    <div class="ft-brand">
+      <span class="logo-text">Vidyaa</span>
+      <p class="ft-desc">
+        Your gateway to professional growth. Learn in-demand skills from world-class instructors and build the career you've always wanted.
+      </p>
+      <div class="ft-soc">
+        <a href="#" class="soc-btn">𝕏</a>
+        <a href="#" class="soc-btn">in</a>
+        <a href="#" class="soc-btn">f</a>
+        <a href="#" class="soc-btn">▶</a>
+        <a href="#" class="soc-btn">📸</a>
+      </div>
+    </div>
+
+    <!-- Platform Links -->
+    <div class="ft-col">
+      <h4>Platform</h4>
+      <ul>
+        <li><a href="#">Browse Courses</a></li>
+        <li><a href="#">Become an Instructor</a></li>
+        <li><a href="#">Vidyaa for Business</a></li>
+        <li><a href="#">Mobile App</a></li>
+        <li><a href="#">Student Referrals</a></li>
+      </ul>
+    </div>
+
+    <!-- Company Links -->
+    <div class="ft-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Partnerships</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="ft-col">
+      <h4>Contact Us</h4>
+      <div class="ft-contact">
+        <p>📍 <span>Koramangala, Bengaluru, KA 560034</span></p>
+        <p>📞 <span>+91 80 4567 8900</span></p>
+        <p>✉️ <span>hello@vidyaa.in</span></p>
+        <p>⏰ <span>Mon–Sat, 9am–6pm IST</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="ft-bot">
+    <span>© 2025 Vidyaa Technologies Pvt. Ltd. · All rights reserved.</span>
+    <div class="ft-bot-lnk">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================ -->
+<script>
+  // ==========================================
+  // SCROLL REVEAL ANIMATION
+  // ==========================================
+  const observerOptions = { threshold: 0.1 };
+
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Stagger animation for multiple elements
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 60);
+        scrollObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all reveal elements
+  document.querySelectorAll('.reveal').forEach(element => {
+    scrollObserver.observe(element);
+  });
+
+  // ==========================================
+  // WISHLIST TOGGLE (Course Favorite Button)
+  // ==========================================
+  document.querySelectorAll('.crs-wl').forEach(button => {
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+
+      // Toggle between empty and filled heart
+      const isEmpty = button.textContent === '♡';
+      button.textContent = isEmpty ? '♥' : '♡';
+
+      // Change color to red when favorited
+      button.style.color = isEmpty ? '#ef4444' : '';
+    });
+  });
+
+  // ==========================================
+  // SMOOTH SCROLLING & ACTIVE NAV LINK
+  // ==========================================
+  const navLinks = document.querySelectorAll('nav a[data-section]');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const sectionId = link.dataset.section;
+      const targetSection = document.getElementById(sectionId);
+
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // ==========================================
+  // SCROLL SPY - HIGHLIGHT ACTIVE NAV SECTION
+  // ==========================================
+  const sections = ['courses', 'categories', 'instructors', 'newsletter'];
+
+  const scrollSpyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          const isActive = link.dataset.section === entry.target.id;
+          link.classList.toggle('active', isActive);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(sectionId => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      scrollSpyObserver.observe(element);
+    }
+  });
+
+  // ==========================================
+  // COURSE SEARCH/FILTER
+  // ==========================================
+  const searchInputs = document.querySelectorAll('.nav-search input');
+  const courseCards = document.querySelectorAll('.crs-card');
+  const noResultsMessage = document.getElementById('noResults');
+  const viewAllButton = document.querySelector('.view-all');
+
+  function filterCourses(searchQuery) {
+    const query = searchQuery.toLowerCase().trim();
+    let visibleCount = 0;
+
+    courseCards.forEach(card => {
+      const cardText = card.innerText.toLowerCase();
+      const matches = !query || cardText.includes(query);
+
+      card.style.display = matches ? '' : 'none';
+      if (matches) visibleCount++;
+    });
+
+    // Show/hide no results message
+    noResultsMessage.classList.toggle('show', visibleCount === 0);
+
+    // Hide view all button when no results
+    if (viewAllButton) {
+      viewAllButton.style.display = visibleCount === 0 ? 'none' : '';
+    }
+
+    // Scroll to courses section if search was performed
+    if (query) {
+      document.getElementById('courses').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
+  // Attach search event listeners
+  searchInputs.forEach(input => {
+    input.addEventListener('input', () => filterCourses(input.value));
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        filterCourses(input.value);
+      }
+    });
+  });
+
+  // ==========================================
+  // MODAL MANAGEMENT
+  // ==========================================
+  const loginModal = document.getElementById('loginModal');
+  const signupModal = document.getElementById('signupModal');
+
+  function openModal(modalElement) {
+    modalElement.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(modalElement) {
+    modalElement.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Open/Close buttons
+  document.getElementById('loginBtn').addEventListener('click', () => {
+    openModal(loginModal);
+  });
+
+  document.getElementById('signupBtn').addEventListener('click', () => {
+    openModal(signupModal);
+  });
+
+  document.getElementById('closeLogin').addEventListener('click', () => {
+    closeModal(loginModal);
+  });
+
+  document.getElementById('closeSignup').addEventListener('click', () => {
+    closeModal(signupModal);
+  });
+
+  // Switch between login and signup
+  document.getElementById('switchToSignup').addEventListener('click', () => {
+    closeModal(loginModal);
+    openModal(signupModal);
+  });
+
+  document.getElementById('switchToLogin').addEventListener('click', () => {
+    closeModal(signupModal);
+    openModal(loginModal);
+  });
+
+  // Close modal when clicking outside
+  [loginModal, signupModal].forEach(modal => {
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeModal(loginModal);
+      closeModal(signupModal);
+    }
+  });
+
+  // ==========================================
+  // LOGIN FORM SUBMISSION
+  // ==========================================
+  document.getElementById('loginSubmit').addEventListener('click', () => {
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPass').value.trim();
+
+    // Validation
+    if (!email || !password) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    // Success message
+    alert(`✅ Welcome back! Logged in as ${email}`);
+    closeModal(loginModal);
+  });
+
+  // ==========================================
+  // SIGNUP FORM SUBMISSION
+  // ==========================================
+  document.getElementById('signupSubmit').addEventListener('click', () => {
+    const name = document.getElementById('signupName').value.trim();
+    const email = document.getElementById('signupEmail').value.trim();
+    const password = document.getElementById('signupPass').value.trim();
+
+    // Validation
+    if (!name || !email || !password) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    // Success message
+    alert(`🎉 Welcome to Vidyaa, ${name}! Your account has been created.`);
+    closeModal(signupModal);
+  });
+</script>
+
+</body>
+</html>
