@@ -37,5 +37,14 @@ If hosted on GitHub Pages:
 - JavaScript (Vanilla JS)
 
 ---
+🌐 Deployment (GitHub Pages)
+Go to repository Settings
+Click Pages
+Select:
+Branch: main
+Folder: /root
+Save
 
-## 📂 Project Structure
+Your site will be live at:
+
+https://yourusername.github.io/vidyaa-learning-platform/
